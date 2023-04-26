@@ -10,6 +10,9 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 public class Member {
+
+    private UserRoleEnum role;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,10 +23,12 @@ public class Member {
 
 
 
-    public Member(SignupRequestDto signupRequestDto) {
+
+
+    public Member(SignupRequestDto signupRequestDto, UserRoleEnum role) {
 
         this.username = signupRequestDto.getUsername();
         this.password = signupRequestDto.getPassword();
-
+        this.role = role;
     }
 }

@@ -48,6 +48,7 @@ public class JwtUtil {
 
     // 토큰 생성
     //role로 회원권한 부여하기
+
     public String createToken(String username, UserRoleEnum role) {
         Date date = new Date();
 
@@ -82,5 +83,6 @@ public class JwtUtil {
     public Claims getUserInfoFromToken(String token) {
         return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody();
     }
+
 
 }
